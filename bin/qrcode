@@ -119,19 +119,19 @@ var argv = yargs
   .example('$0 -d F00 -o out.png "some text"', 'Use red as foreground color')
   .argv
 
-if (process.stdin.isTTY) {
+// if (process.stdin.isTTY) {
   processInputs(argv._.join(' '), argv)
-} else {
-  var text = ''
-  process.stdin.setEncoding('utf8')
-  process.stdin.on('readable', function () {
-    var chunk = process.stdin.read()
-    if (chunk !== null) {
-      text += chunk
-    }
-  })
+// } else {
+//   var text = ''
+//   process.stdin.setEncoding('utf8')
+//   process.stdin.on('readable', function () {
+//     var chunk = process.stdin.read()
+//     if (chunk !== null) {
+//       text += chunk
+//     }
+//   })
 
-  process.stdin.on('end', function () {
-    processInputs(text, argv)
-  })
-}
+//   process.stdin.on('end', function () {
+//     processInputs(text, argv)
+//   })
+// }
